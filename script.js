@@ -1,64 +1,74 @@
 // Seleciona todos os elementos com a classe '.kanban-card' e adiciona eventos a cada um deles
-document.querySelectorAll('.kanban-card').forEach(card => {
-  // Evento disparado quando começa a arrastar um card
-  card.addEventListener('dragstart', e => {
-      // Adiciona a classe 'dragging' ao card que está sendo arrastado
-      e.currentTarget.classList.add('dragging');
-  });
+function addCardEvents(card) {
+    // Evento disparado quando começa a arrastar um card
+    card.addEventListener('dragstart', e => {
+        e.currentTarget.classList.add('dragging');
+    });
 
-  // Evento disparado quando termina de arrastar o card
-  card.addEventListener('dragend', e => {
-      // Remove a classe 'dragging' quando o card é solto
-      e.currentTarget.classList.remove('dragging');
-  });
+    // Evento disparado quando termina de arrastar o card
+    card.addEventListener('dragend', e => {
+        e.currentTarget.classList.remove('dragging');
+    });
+
+    // Adiciona evento ao botão de edição
+    card.querySelector('.edit-card').addEventListener('click', (e) => {
+        e.stopPropagation(); // Impede que o evento de arrastar seja acionado
+        const newTitle = prompt("Digite o novo título da tarefa:", card.querySelector('.card-title').textContent);
+        if (newTitle) {
+            card.querySelector('.card-title').textContent = newTitle;
+        }
+    });
+
+    // Adiciona evento ao select de prioridade
+    card.querySelector('select').addEventListener('change', (event) => {
+        const selectedValue = event.target.value;
+        const colors = {
+            low: '#92a5fb',    // Baixa prioridade
+            medium: '#fea065', // Média prioridade
+            high: '#d573b6'    // Alta prioridade
+        };
+        card.style.backgroundColor = colors[selectedValue];
+    });
+}
+
+// Inicializa os eventos para todos os cards existentes
+document.querySelectorAll('.kanban-card').forEach(card => {
+    addCardEvents(card);
 });
 
 // Seleciona todos os elementos com a classe '.kanban-cards' (as colunas) e adiciona eventos a cada um deles
 document.querySelectorAll('.kanban-cards').forEach(column => {
-  // Evento disparado quando um card arrastado passa sobre uma coluna (drag over)
-  column.addEventListener('dragover', e => {
-      // Previne o comportamento padrão para permitir o "drop" (soltar) do card
-      e.preventDefault();
-      // Adiciona a classe 'cards-hover'
-      e.currentTarget.classList.add('cards-hover');
-  });
+    column.addEventListener('dragover', e => {
+        e.preventDefault();
+        e.currentTarget.classList.add('cards-hover');
+    });
 
-  // Evento disparado quando o card sai da área da coluna (quando o card é arrastado para fora)
-  column.addEventListener('dragleave', e => {
-      // Remove a classe 'cards-hover' quando o card deixa de estar sobre a coluna
-      e.currentTarget.classList.remove('cards-hover');
-  });
+    column.addEventListener('dragleave', e => {
+        e.currentTarget.classList.remove('cards-hover');
+    });
 
-  // Evento disparado quando o card é solto (drop) dentro da coluna
-  column.addEventListener('drop', e => {
-      // Remove a classe 'cards-hover', já que o card foi solto
-      e.currentTarget.classList.remove('cards-hover');
-
-      // Seleciona o card que está sendo arrastado (que tem a classe 'dragging')
-      const dragCard = document.querySelector('.kanban-card.dragging');
-      
-      // Anexa (move) o card arrastado para a coluna onde foi solto
-      e.currentTarget.appendChild(dragCard);
-  });
+    column.addEventListener('drop', e => {
+        e.currentTarget.classList.remove('cards-hover');
+        const dragCard = document.querySelector('.kanban-card.dragging');
+        e.currentTarget.appendChild(dragCard);
+    });
 });
 
-
-
+// Adiciona o evento para criar novos cartões, com o botão de edição e select de prioridade
 document.querySelectorAll('.add-card').forEach(button => {
     button.addEventListener('click', function() {
-        // Encontre a coluna correspondente
         const column = this.closest('.kanban-column');
-        
-        // Crie um novo card
+
         const newCard = document.createElement('div');
         newCard.classList.add('kanban-card');
         newCard.draggable = true;
 
-        // Adicione conteúdo ao novo card
         newCard.innerHTML = `
-            <div class="badge low">
-                <span>Nova tarefa</span>
-            </div>
+            <select>
+                <option value="low">Baixa prioridade</option>
+                <option value="medium">Média prioridade</option>
+                <option value="high">Alta prioridade</option>
+            </select>
             <p class="card-title">Título da nova tarefa</p>
             <div class="card-infos">
                 <div class="card-icons">
@@ -70,7 +80,7 @@ document.querySelectorAll('.add-card').forEach(button => {
                     </p>
                     <button class="edit-card" aria-label="Editar cartão">
                         <i class="fa-solid fa-pencil"></i>
-                    </button> <!-- Botão de edição -->
+                    </button>
                 </div>
                 <div class="user">
                     <img src="" alt="">
@@ -78,16 +88,10 @@ document.querySelectorAll('.add-card').forEach(button => {
             </div>
         `;
 
-        // Adicione o novo card à coluna
         const cardsContainer = column.querySelector('.kanban-cards');
         cardsContainer.appendChild(newCard);
 
-        // Adiciona a funcionalidade de edição ao novo card
-        newCard.querySelector('.edit-card').addEventListener('click', () => {
-            const newTitle = prompt("Digite o novo título da tarefa:", newCard.querySelector('.card-title').textContent);
-            if (newTitle) {
-                newCard.querySelector('.card-title').textContent = newTitle;
-            }
-        });
+        // Adiciona eventos ao novo card
+        addCardEvents(newCard);
     });
 });
