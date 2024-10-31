@@ -9,6 +9,47 @@ function addCardEvents(card) {
     e.currentTarget.classList.remove("dragging");
   });
 
+
+
+
+
+
+
+
+
+  // Adiciona evento ao botão de comentário
+  card.querySelector(".comment").addEventListener("click", (e) => {
+    e.stopPropagation(); // Impede que o evento de arrastar seja acionado
+    const comment = prompt("Digite seu comentário:");
+    const commentCountSpan = card.querySelector(".comment-count");
+    if (comment) {
+      const commentsDiv = card.querySelector(".comments");
+      const newComment = document.createElement("p");
+      newComment.textContent = comment;
+      commentsDiv.appendChild(newComment); // Adiciona o comentário à área de comentários
+
+
+  
+          // Atualiza o contador de comentários
+          let count = parseInt(commentCountSpan.textContent) || 0; // Obtém o número atual ou 0
+          count += 1; // Incrementa o contador
+          commentCountSpan.textContent = count; // Atualiza o texto do contador
+          
+          // Mostra o contador
+          commentCountSpan.style.display = "inline"; // Exibe o contador
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+  
   // Adiciona evento ao botão de edição
   card.querySelector(".edit-card").addEventListener("click", (e) => {
     e.stopPropagation(); // Impede que o evento de arrastar seja acionado

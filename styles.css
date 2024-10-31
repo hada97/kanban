@@ -191,3 +191,24 @@ select {
 .kanban-card {
   transition: background-color 0.3s;
 }
+
+.comments {
+  display: none; /* Oculta por padrão */
+}
+.comments.visible {
+  display: block; /* Exibe quando a classe 'visible' for adicionada */
+}
+
+.comment {
+  position: relative; /* Permite que o contador seja posicionado em relação a este botão */
+}
+
+.comment-count {
+  font-size: 0.7rem; /* Tamanho pequeno */
+  color: #4b5563;
+  position: absolute; /* Posiciona em relação ao botão */
+  top: 12px; /* Ajuste a posição vertical */
+  right: -8px; /* Ajuste a posição horizontal */
+  border-radius: 50%; /* Forma circular */
+  padding: 2px 5px; /* Espaçamento interno */
+}
