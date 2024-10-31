@@ -126,3 +126,20 @@ function changeAvatars() {
     });
   }
 }
+
+
+
+/*
+// Adiciona eventos aos ícones do cartão
+function addCardEvents(card) {
+  // ... outros eventos
+
+  // Evento para excluir o cartão
+  card.querySelector('.delete-card').addEventListener('click', (e) => {
+      e.stopPropagation(); // Impede a ação de arrastar
+      card.remove(); // Remove o cartão
+  });
+}
+
+// Lembre-se de chamar addCardEvents para novos cartões também
+*/
