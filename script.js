@@ -67,33 +67,38 @@ document.querySelectorAll(".add-card").forEach((button) => {
     newCard.draggable = true;
 
     newCard.innerHTML = `
-            <select>
+              <select>
                 <option value="low">Baixa prioridade</option>
                 <option value="medium">Média prioridade</option>
                 <option value="high">Alta prioridade</option>
-            </select>
-            <input type="text" class="card-title" maxlength="20" placeholder="Digite o título" />
-            <div class="card-infos">
+              </select>
+              <input
+                type="text"
+                class="card-title"
+                maxlength="20"
+                placeholder="Digite o título"
+              />
+              <div class="card-infos">
                 <div class="card-icons">
-                    <p>
-                        <i class="fa-regular fa-comment"></i> 0
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-paperclip"></i> 0
-                    </p>
-                    <button class="edit-card" aria-label="Editar cartão">
-                        <i class="fa-solid fa-pencil"></i>
-                    </button>
+                  <p><i class="fa-regular fa-comment"></i></p>
+                  <p><i class="fa-solid fa-paperclip"></i></p>
+                  <button class="edit-card" aria-label="Editar cartão">
+                    <i class="fa-solid fa-pencil"></i>
+                  </button>
+                  <button class="delete-card" aria-label="Excluir cartão">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
                 </div>
+
                 <div class="user">
                   <img
-                  src="av.jpg"
-                  alt="Avatar"
-                  class="avatar"
-                  onclick="changeAvatars(this)"
-                />
+                    src="av.jpg"
+                    alt="Avatar"
+                    class="avatar"
+                    onclick="changeAvatars(this)"
+                  />
                 </div>
-            </div>
+              </div>
         `;
 
     const cardsContainer = column.querySelector(".kanban-cards");
@@ -126,20 +131,3 @@ function changeAvatars() {
     });
   }
 }
-
-
-
-/*
-// Adiciona eventos aos ícones do cartão
-function addCardEvents(card) {
-  // ... outros eventos
-
-  // Evento para excluir o cartão
-  card.querySelector('.delete-card').addEventListener('click', (e) => {
-      e.stopPropagation(); // Impede a ação de arrastar
-      card.remove(); // Remove o cartão
-  });
-}
-
-// Lembre-se de chamar addCardEvents para novos cartões também
-*/
