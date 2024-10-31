@@ -100,3 +100,25 @@ document.querySelectorAll('.add-card').forEach(button => {
 });
 
 
+function loadAvatar(event, inputElement) {
+    const avatarImage = inputElement.parentElement.querySelector('.avatar');
+    const file = event.target.files[0];
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            avatarImage.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+function changeAvatars() {
+    const newUrl = prompt("Digite a URL da nova imagem:");
+    if (newUrl) {
+        const avatars = document.querySelectorAll('.avatar');
+        avatars.forEach(avatar => {
+            avatar.src = newUrl;
+        });
+    }
+}
