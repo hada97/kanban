@@ -54,7 +54,7 @@ document.querySelectorAll('.add-card').forEach(button => {
         newCard.classList.add('kanban-card');
         newCard.draggable = true;
 
-        // Adicione conteúdo ao novo card (você pode personalizar isso)
+        // Adicione conteúdo ao novo card
         newCard.innerHTML = `
             <div class="badge low">
                 <span>Nova tarefa</span>
@@ -68,6 +68,9 @@ document.querySelectorAll('.add-card').forEach(button => {
                     <p>
                         <i class="fa-solid fa-paperclip"></i> 0
                     </p>
+                    <button class="edit-card" aria-label="Editar cartão">
+                        <i class="fa-solid fa-pencil"></i>
+                    </button> <!-- Botão de edição -->
                 </div>
                 <div class="user">
                     <img src="" alt="">
@@ -78,5 +81,13 @@ document.querySelectorAll('.add-card').forEach(button => {
         // Adicione o novo card à coluna
         const cardsContainer = column.querySelector('.kanban-cards');
         cardsContainer.appendChild(newCard);
+
+        // Adiciona a funcionalidade de edição ao novo card
+        newCard.querySelector('.edit-card').addEventListener('click', () => {
+            const newTitle = prompt("Digite o novo título da tarefa:", newCard.querySelector('.card-title').textContent);
+            if (newTitle) {
+                newCard.querySelector('.card-title').textContent = newTitle;
+            }
+        });
     });
 });
