@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Kanban",
+    "version": "1.0",
+    "description": "Extensão do Chrome para minha app.",
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+       
+      }
+    },
+    "permissions": ["storage", "activeTab"]
+  }
+  

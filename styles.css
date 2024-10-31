@@ -9,11 +9,15 @@
 
 body {
   min-height: 100vh;
+  min-height: 500px; /* Ajuste conforme necessário */
+  min-width: 1000px; /* Defina uma largura mínima */
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, #a5b4fc, #93c5fd);
+  background: linear-gradient(90deg, #000000, #535353);
+  overflow: auto;
 }
+
 
 .kanban {
   display: flex;
@@ -36,7 +40,7 @@ body {
   padding: 12px;
   overflow: hidden;
   position: relative;
-  min-width: 252px;
+  min-width: 200px;
 }
 
 .kanban-column::after {
@@ -75,7 +79,7 @@ body {
 
 .kanban-title h2 {
   font-size: 18px;
-  color: #4b5563;
+  color: #313233;
   font-weight: 600;
 }
 
