@@ -1,4 +1,3 @@
-// Seleciona todos os elementos com a classe '.kanban-card' e adiciona eventos a cada um deles
 function addCardEvents(card) {
   // Evento disparado quando começa a arrastar um card
   card.addEventListener("dragstart", (e) => {
@@ -19,6 +18,15 @@ function addCardEvents(card) {
     );
     if (newTitle) {
       card.querySelector(".card-title").textContent = newTitle;
+    }
+  });
+
+  // Adiciona evento ao botão de exclusão
+  card.querySelector(".delete-card").addEventListener("click", (e) => {
+    e.stopPropagation(); // Impede que o evento de arrastar seja acionado
+    const confirmation = confirm("Tem certeza que deseja excluir este cartão?");
+    if (confirmation) {
+      card.remove(); // Remove o cartão do DOM
     }
   });
 
@@ -131,3 +139,12 @@ function changeAvatars() {
     });
   }
 }
+
+// Adiciona evento ao botão de exclusão
+card.querySelector(".delete-card").addEventListener("click", (e) => {
+  e.stopPropagation(); // Impede que o evento de arrastar seja acionado
+  const confirmation = confirm("Tem certeza que deseja excluir este cartão?");
+  if (confirmation) {
+    card.remove(); // Remove o cartão do DOM
+  }
+});
