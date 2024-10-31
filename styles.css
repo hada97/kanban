@@ -14,10 +14,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, #000000, #535353);
+  background: #000000;
   overflow: auto;
 }
-
 
 .kanban {
   display: flex;
@@ -34,7 +33,7 @@ body {
   gap: 18px;
   height: 100%;
   overflow-y: auto;
-  background-color: #f6f8fc;
+  background-color: #c4c5c5;
   border-radius: 12px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   padding: 12px;
@@ -99,7 +98,6 @@ body {
   border: none;
 }
 
-
 .kanban-cards {
   display: flex;
   flex-direction: column;
@@ -118,35 +116,16 @@ body {
   padding: 10px;
   box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-}
-
-.badge {
-  color: #ffffff;
-  width: fit-content;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 12px;
+  color: #000000;
 }
 
 select {
-  color: #ffffff;
+  color: #000000;
   width: fit-content;
   font-size: 12px;
   padding: 4px 8px;
   border-radius: 12px;
-  background-color: #4b5563;
-}
-
-.badge.high {
-  background-color: #d573b6;
-}
-
-.badge.medium {
-  background-color: #fea065;
-}
-
-.badge.low {
-  background-color: #92a5fb;
+  background-color: #ffffff;
 }
 
 .card-infos {
@@ -161,7 +140,7 @@ select {
 }
 
 .card-icons i {
-  color: #a8a8aa;
+  color: #5e5d5d;
 }
 
 .user img {
@@ -194,7 +173,6 @@ select {
   border-radius: 20px;
 }
 
-
 .kanban-card:hover {
   background-color: #f5f5f5;
   box-shadow: 0px 8px 10px -4px rgba(0, 0, 0, 0.2);
@@ -210,7 +188,6 @@ select {
     min-width: 90%;
   }
 }
-
 
 .kanban-card.dragging {
   opacity: 0.5;
