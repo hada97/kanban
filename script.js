@@ -54,7 +54,10 @@ document.querySelectorAll('.kanban-cards').forEach(column => {
     });
 });
 
-// Adiciona o evento para criar novos cartões, com o botão de edição e select de prioridade
+
+
+
+// Adiciona o evento para criar novos cartões
 document.querySelectorAll('.add-card').forEach(button => {
     button.addEventListener('click', function() {
         const column = this.closest('.kanban-column');
@@ -69,7 +72,7 @@ document.querySelectorAll('.add-card').forEach(button => {
                 <option value="medium">Média prioridade</option>
                 <option value="high">Alta prioridade</option>
             </select>
-            <p class="card-title">Título da nova tarefa</p>
+            <input type="text" class="card-title" maxlength="20" placeholder="Digite o título" />
             <div class="card-infos">
                 <div class="card-icons">
                     <p>
@@ -95,3 +98,5 @@ document.querySelectorAll('.add-card').forEach(button => {
         addCardEvents(newCard);
     });
 });
+
+

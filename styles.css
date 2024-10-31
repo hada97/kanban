@@ -30,16 +30,17 @@ body {
 .kanban-column {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
   height: 100%;
   overflow-y: auto;
-  background-color: #c4c5c5;
+  background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   padding: 12px;
   overflow: hidden;
   position: relative;
-  min-width: 200px;
+  min-width: 220px;
+  max-width: 250px;
   min-height: 800px;
 }
 
@@ -84,7 +85,7 @@ body {
 }
 
 .add-card {
-  color: #4b5563;
+  color: #000000;
   font-size: 16px;
   background-color: transparent;
   cursor: pointer;
@@ -113,12 +114,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background-color: #ffffff;
+  background-color: #92a5fb;
   border-radius: 14px;
   padding: 10px;
   box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  color: #000000;
+  
 }
 
 select {
@@ -156,10 +156,6 @@ select {
   opacity: 0.5;
 }
 
-.cards-hover {
-  background-color: #eaeffa;
-  border-radius: 8px;
-}
 
 *::-webkit-scrollbar {
   width: 8px;
@@ -175,10 +171,7 @@ select {
   border-radius: 20px;
 }
 
-.kanban-card:hover {
-  background-color: #f5f5f5;
-  box-shadow: 0px 8px 10px -4px rgba(0, 0, 0, 0.2);
-}
+=
 
 @media (max-width: 768px) {
   .kanban {
@@ -193,4 +186,28 @@ select {
 
 .kanban-card.dragging {
   opacity: 0.5;
+}
+
+.card-title {
+  border: none;
+  background: transparent;
+  width: 100%; /* ou o tamanho que preferir */
+  font-size: 16px; /* ajuste conforme necessário */
+  outline: none; /* remove o contorno do input ao focar */
+}
+
+
+
+.comments.hidden {
+  display: none;
+}
+
+.comments{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #92a5fb;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
 }
