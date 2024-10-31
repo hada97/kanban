@@ -118,7 +118,6 @@ body {
   border-radius: 14px;
   padding: 10px;
   box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
-  
 }
 
 select {
@@ -156,7 +155,6 @@ select {
   opacity: 0.5;
 }
 
-
 *::-webkit-scrollbar {
   width: 8px;
 }
@@ -171,9 +169,7 @@ select {
   border-radius: 20px;
 }
 
-=
-
-@media (max-width: 768px) {
+= @media (max-width: 768px) {
   .kanban {
     flex-direction: column;
     align-items: center;
@@ -194,4 +190,8 @@ select {
   width: 100%; /* ou o tamanho que preferir */
   font-size: 16px; /* ajuste conforme necessário */
   outline: none; /* remove o contorno do input ao focar */
+}
+
+.kanban-card {
+  transition: background-color 0.3s;
 }
