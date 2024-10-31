@@ -1,206 +1,203 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="src/css/styles.css" />
-    <title>Kanban</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <main class="kanban">
-      <div class="kanban-column">
-        <div class="kanban-title">
-          <h2>Pendente</h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="src/css/styles.css" />
+  <title>Kanban</title>
+</head>
 
-          <button clas="add card">
-            <i class="fa-solid fa-plus"></i>
-          </button>
-        </div>
+<body>
+  <main class="kanban">
+    <div class="kanban-column" data-id="1">
+      <div class="kanban-title">
+        <h2>Pendente</h2>
 
-        <div class="kanban-cards">
-          <div class="kanban-card">
-            <div class="badge high">
-              <span> Alta prioridade </span>
+        <button class="add card">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+
+      <div class="kanban-cards" >
+        <div class="kanban-card">
+          <div class="badge high">
+            <span> Alta prioridade </span>
+          </div>
+
+          <p class="card-title">Revisar projeto</p>
+          <div class="card-infos">
+            <div class="icons">
+              <p>
+                <i class="fa-regular fa-comment"></i>
+                1
+              </p>
+
+              <p>
+                <i class="fa-solid fa-paperclip"></i>
+                1
+              </p>
             </div>
 
-            <p class="card-title">Revisar projeto</p>
-            <div class="card-infos">
-              <div class="icons">
-                <p>
-                  <i class="fa-regular fa-comment"></i>
-                  1
-                </p>
-
-                <p>
-                  <i class="fa-solid fa-paperclip"></i>
-                  1
-                </p>
-              </div>
-
-              <div class="user">
-                <img src="" alt="" />
-              </div>
+            <div class="user">
+              <img src="" alt="" />
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="kanban-column">
-        <div class="kanban-title">
-          <h2>Em desenvolvimento</h2>
+    <div class="kanban-column" data-id="2">
+      <div class="kanban-title">
+        <h2>Em Dev</h2>
 
-          <button clas="add card">
-            <i class="fa-solid fa-plus"></i>
-          </button>
-        </div>
+        <button class="add card">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
 
-        <div class="kanban-cards">
-          <div class="kanban-card">
-            <div class="badge high">
-              <span> Alta prioridade </span>
+      <div class="kanban-cards">
+        <div class="kanban-card">
+          <div class="badge high">
+            <span> Alta prioridade </span>
+          </div>
+
+          <p class="card-title">testar features</p>
+          <div class="card-infos">
+            <div class="icons">
+              <p>
+                <i class="fa-regular fa-comment"></i>
+                1
+              </p>
+
+              <p>
+                <i class="fa-solid fa-paperclip"></i>
+                1
+              </p>
             </div>
 
-            <p class="card-title">testar features</p>
-            <div class="card-infos">
-              <div class="icons">
-                <p>
-                  <i class="fa-regular fa-comment"></i>
-                  1
-                </p>
-
-                <p>
-                  <i class="fa-solid fa-paperclip"></i>
-                  1
-                </p>
-              </div>
-
-              <div class="user">
-                <img src="" alt="" />
-              </div>
+            <div class="user">
+              <img src="" alt="" />
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="kanban-column">
-        <div class="kanban-title">
-          <h2>Em Teste</h2>
+    <div class="kanban-column" data-id="3">
+      <div class="kanban-title">
+        <h2>Em Teste</h2>
 
-          <button clas="add card">
-            <i class="fa-solid fa-plus"></i>
-          </button>
-        </div>
+        <button class="add card">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
 
-        <div class="kanban-cards">
-          <div class="kanban-card">
-            <div class="badge high">
-              <span> Alta prioridade </span>
+      <div class="kanban-cards">
+        <div class="kanban-card">
+          <div class="badge high">
+            <span> Alta prioridade </span>
+          </div>
+
+          <p class="card-title">desenvolver projeto</p>
+          <div class="card-infos">
+            <div class="icons">
+              <p>
+                <i class="fa-regular fa-comment"></i>
+                1
+              </p>
+
+              <p>
+                <i class="fa-solid fa-paperclip"></i>
+                1
+              </p>
             </div>
 
-            <p class="card-title">desenvolver projeto</p>
-            <div class="card-infos">
-              <div class="icons">
-                <p>
-                  <i class="fa-regular fa-comment"></i>
-                  1
-                </p>
-
-                <p>
-                  <i class="fa-solid fa-paperclip"></i>
-                  1
-                </p>
-              </div>
-
-              <div class="user">
-                <img src="" alt="" />
-              </div>
+            <div class="user">
+              <img src="" alt="" />
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="kanban-column">
-        <div class="kanban-title">
-          <h2>Em Deploy</h2>
+    <div class="kanban-column" data-id="4">
+      <div class="kanban-title">
+        <h2>Em Deploy</h2>
 
-          <button clas="add card">
-            <i class="fa-solid fa-plus"></i>
-          </button>
-        </div>
+        <button class="add card">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
 
-        <div class="kanban-cards">
-          <div class="kanban-card">
-            <div class="badge high">
-              <span> Alta prioridade </span>
+      <div class="kanban-cards">
+        <div class="kanban-card">
+          <div class="badge high">
+            <span> Alta prioridade </span>
+          </div>
+
+          <p class="card-title">deploy do projeto</p>
+          <div class="card-infos">
+            <div class="icons">
+              <p>
+                <i class="fa-regular fa-comment"></i>
+                1
+              </p>
+
+              <p>
+                <i class="fa-solid fa-paperclip"></i>
+                1
+              </p>
             </div>
 
-            <p class="card-title">deploy do projeto</p>
-            <div class="card-infos">
-              <div class="icons">
-                <p>
-                  <i class="fa-regular fa-comment"></i>
-                  1
-                </p>
-
-                <p>
-                  <i class="fa-solid fa-paperclip"></i>
-                  1
-                </p>
-              </div>
-
-              <div class="user">
-                <img src="" alt="" />
-              </div>
+            <div class="user">
+              <img src="" alt="" />
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="kanban-column">
-        <div class="kanban-title">
-          <h2>Concluído</h2>
+    <div class="kanban-column" data-id="5">
+      <div class="kanban-title">
+        <h2>Concluído</h2>
 
-          <button clas="add card">
-            <i class="fa-solid fa-plus"></i>
-          </button>
-        </div>
+        <button class="add card">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
 
-        <div class="kanban-cards">
-          <div class="kanban-card">
-            <div class="badge high">
-              <span> prioridade </span>
+      <div class="kanban-cards">
+        <div class="kanban-card">
+          <div class="badge high">
+            <span> prioridade </span>
+          </div>
+
+          <p class="card-title">finalizado</p>
+          <div class="card-infos">
+            <div class="icons">
+              <p>
+                <i class="fa-regular fa-comment"></i>
+                1
+              </p>
+
+              <p>
+                <i class="fa-solid fa-paperclip"></i>
+                1
+              </p>
             </div>
 
-            <p class="card-title">finalizado</p>
-            <div class="card-infos">
-              <div class="icons">
-                <p>
-                  <i class="fa-regular fa-comment"></i>
-                  1
-                </p>
-
-                <p>
-                  <i class="fa-solid fa-paperclip"></i>
-                  1
-                </p>
-              </div>
-
-              <div class="user">
-                <img src="" alt="" />
-              </div>
+            <div class="user">
+              <img src="" alt="" />
             </div>
           </div>
         </div>
       </div>
-    </main>
-  </body>
+    </div>
+  </main>
+</body>
+
 </html>
