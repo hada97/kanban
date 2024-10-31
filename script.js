@@ -83,7 +83,7 @@ document.querySelectorAll('.add-card').forEach(button => {
                     </button>
                 </div>
                 <div class="user">
-                    <img src="" alt="">
+                    <img src="av.jpg" alt="">
                 </div>
             </div>
         `;

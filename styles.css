@@ -40,6 +40,7 @@ body {
   overflow: hidden;
   position: relative;
   min-width: 200px;
+  min-height: 800px;
 }
 
 .kanban-column::after {
@@ -84,7 +85,7 @@ body {
 
 .add-card {
   color: #4b5563;
-  font-size: 20px;
+  font-size: 16px;
   background-color: transparent;
   cursor: pointer;
   border: none;
@@ -92,10 +93,11 @@ body {
 
 .edit-card {
   color: #4b5563;
-  font-size: 20px;
+  font-size: 16px;
   background-color: transparent;
   cursor: pointer;
   border: none;
+  width: 14px;
 }
 
 .kanban-cards {
