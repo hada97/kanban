@@ -12,11 +12,6 @@ function addCardEvents(card) {
 
 
 
-
-
-
-
-
   // Adiciona evento ao botão de comentário
   card.querySelector(".comment").addEventListener("click", (e) => {
     e.stopPropagation(); // Impede que o evento de arrastar seja acionado
@@ -35,18 +30,11 @@ function addCardEvents(card) {
           count += 1; // Incrementa o contador
           commentCountSpan.textContent = count; // Atualiza o texto do contador
           
-          // Mostra o contador
+          // Mostra o contador 
+
           commentCountSpan.style.display = "inline"; // Exibe o contador
     }
   });
-
-
-
-
-
-
-
-
 
 
   
@@ -128,15 +116,26 @@ document.querySelectorAll(".add-card").forEach((button) => {
                 placeholder="Digite o título"
               />
               <div class="card-infos">
+
                 <div class="card-icons">
-                  <p><i class="fa-regular fa-comment"></i></p>
-                  <p><i class="fa-solid fa-paperclip"></i></p>
-                  <button class="edit-card" aria-label="Editar cartão">
-                    <i class="fa-solid fa-pencil"></i>
-                  </button>
-                  <button class="delete-card" aria-label="Excluir cartão">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
+
+                <button class="comment">
+                  <i class="fa-regular fa-comment"></i>
+                  <span class="comment-count" style="display: none">0</span>
+                </button>
+
+                <button class="clip">
+                  <i class="fa-solid fa-paperclip"></i>
+                </button>
+
+                <button class="edit-card" aria-label="Editar cartão">
+                  <i class="fa-solid fa-pencil"></i>
+                </button>
+
+                <button class="delete-card" aria-label="Excluir cartão">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+
                 </div>
 
                 <div class="user">
