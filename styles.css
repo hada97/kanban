@@ -189,11 +189,26 @@ select {
 
 .kanban-card {
   transition: background-color 0.3s;
+  flex-direction: column; /* Garante que o conteúdo se empilhe verticalmente */
+  transition: all 0.3s ease; /* Suaviza a transição */
 }
 
 .comments {
-  display: none; /* Oculta por padrão */
+  display: none;
+  border: none;
+  font-size: 14px;
+  margin-top: 0px;
+  padding: 4px;
 }
+
+.comments p {
+  /* Seletor específico para os parágrafos dentro de .comments */
+  font-size: 14px;
+  overflow-wrap: break-word;
+  margin: 0; /* Remove margens para evitar espaçamento adicional */
+  padding: 4px 0; /* Padding vertical para espaçamento interno */
+}
+
 .comments.visible {
   display: block; /* Exibe quando a classe 'visible' for adicionada */
 }
@@ -202,7 +217,8 @@ select {
   position: relative; /* Permite que o contador seja posicionado em relação a este botão */
 }
 
-.comment-count {
+.comment-count,
+.file-count {
   font-size: 0.7rem; /* Tamanho pequeno */
   color: #4b5563;
   position: absolute; /* Posiciona em relação ao botão */

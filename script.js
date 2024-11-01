@@ -1,4 +1,5 @@
 function addCardEvents(card) {
+  // Eventos para drag and drop
   card.addEventListener("dragstart", (e) => {
     e.currentTarget.classList.add("dragging");
   });
@@ -7,6 +8,7 @@ function addCardEvents(card) {
     e.currentTarget.classList.remove("dragging");
   });
 
+  // Evento para adicionar comentários
   card.querySelector(".comment").addEventListener("click", (e) => {
     e.stopPropagation();
     const comment = prompt("Digite seu comentário:");
@@ -24,17 +26,41 @@ function addCardEvents(card) {
     }
   });
 
-  card.querySelector(".edit-card").addEventListener("click", (e) => {
-    e.stopPropagation();
-    const newTitle = prompt(
-      "Digite o novo título da tarefa:",
-      card.querySelector(".card-title").value // use .value
-    );
-    if (newTitle) {
-      card.querySelector(".card-title").value = newTitle; // use .value
+  const clipButton = card.querySelector(".clip");
+  const fileInput = clipButton.querySelector(".file-input");
+
+  clipButton.addEventListener("click", (e) => {
+    e.stopPropagation(); // Impede que o evento de arrastar seja acionado
+    fileInput.click(); // Simula o clique no input de arquivo
+  });
+
+  // Adiciona o evento para o input de arquivo
+  fileInput.addEventListener("change", (event) => {
+    const files = event.target.files;
+    if (files.length > 0) {
+      // Exibe o nome do primeiro arquivo anexado
+      const fileName = document.createElement("p");
+      fileName.textContent = `Anexo: ${files[0].name}`;
+      card.querySelector(".attachments").appendChild(fileName); // Adiciona o nome à seção de anexos
     }
   });
 
+  card.querySelector(".edit-card").addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    // Altera o estado de exibição da seção de comentários
+    const commentsDiv = card.querySelector(".comments");
+    if (
+      commentsDiv.style.display === "none" ||
+      commentsDiv.style.display === ""
+    ) {
+      commentsDiv.style.display = "block"; // Mostra os comentários
+    } else {
+      commentsDiv.style.display = "none"; // Esconde os comentários
+    }
+  });
+
+  // Evento para excluir o cartão
   card.querySelector(".delete-card").addEventListener("click", (e) => {
     e.stopPropagation();
     const confirmation = confirm("Tem certeza que deseja excluir este cartão?");
@@ -43,6 +69,7 @@ function addCardEvents(card) {
     }
   });
 
+  // Evento para mudança de prioridade
   card.querySelector("select").addEventListener("change", (event) => {
     const selectedValue = event.target.value;
     const colors = {
@@ -54,10 +81,12 @@ function addCardEvents(card) {
   });
 }
 
+// Inicializa os eventos para todos os cards existentes
 document.querySelectorAll(".kanban-card").forEach((card) => {
   addCardEvents(card);
 });
 
+// Adiciona eventos às colunas
 document.querySelectorAll(".kanban-cards").forEach((column) => {
   column.addEventListener("dragover", (e) => {
     e.preventDefault();
@@ -75,6 +104,7 @@ document.querySelectorAll(".kanban-cards").forEach((column) => {
   });
 });
 
+// Adiciona o evento para criar novos cartões
 document.querySelectorAll(".add-card").forEach((button) => {
   button.addEventListener("click", function () {
     const column = this.closest(".kanban-column");
@@ -87,7 +117,8 @@ document.querySelectorAll(".add-card").forEach((button) => {
         <option value="medium">Média prioridade</option>
         <option value="high">Alta prioridade</option>
       </select>
-      <input type="text" class="card-title" maxlength="20" placeholder="Digite o título" />
+      <input type="text" class="card-title" maxlength="30" placeholder="Digite o título" />
+      <div class="comments"></div>
       <div class="card-infos">
         <div class="card-icons">
           <button class="comment">
@@ -96,31 +127,26 @@ document.querySelectorAll(".add-card").forEach((button) => {
           </button>
           <button class="clip">
             <i class="fa-solid fa-paperclip"></i>
+            <input type="file" class="file-input" style="display: none;" />
+            <span class="file-count" style="display: none;">0</span>
           </button>
           <button class="edit-card" aria-label="Editar cartão">
-            <i class="fa-solid fa-pencil"></i>
+            <i class="fa-solid fa-arrows-alt"></i>
           </button>
           <button class="delete-card" aria-label="Excluir cartão">
             <i class="fa-solid fa-trash"></i>
           </button>
         </div>
-        <div class="comments"></div>
         <div class="user">
           <img src="av.jpg" alt="Avatar" class="avatar" onclick="changeAvatars(this)" />
         </div>
       </div>`;
+
     const cardsContainer = column.querySelector(".kanban-cards");
     cardsContainer.appendChild(newCard);
     addCardEvents(newCard); // Adiciona eventos ao novo card
   });
 });
-
-
-
-
-
-
-
 
 function loadAvatar(event, inputElement) {
   const avatarImage = inputElement.parentElement.querySelector(".avatar");
