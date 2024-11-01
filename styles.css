@@ -9,8 +9,7 @@
 
 body {
   min-height: 100vh;
-  min-height: 500px; /* Ajuste conforme necessário */
-  min-width: 1000px; /* Defina uma largura mínima */
+  min-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
