@@ -138,6 +138,8 @@ document.querySelectorAll(".add-card").forEach((button) => {
 
                 </div>
 
+                <div class="comments"></div>
+
                 <div class="user">
                   <img
                     src="av.jpg"
