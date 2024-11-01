@@ -25,6 +25,7 @@ body {
   height: 95vh;
   overflow-x: auto;
   justify-content: center;
+  padding-top: 60px;
 }
 
 .kanban-column {
