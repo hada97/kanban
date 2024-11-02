@@ -18,7 +18,6 @@ function addCardEvents(card) {
       const newComment = document.createElement("p");
       newComment.textContent = comment;
       commentsDiv.appendChild(newComment);
-
       let count = parseInt(commentCountSpan.textContent) || 0;
       count += 1;
       commentCountSpan.textContent = count;
@@ -69,15 +68,22 @@ function addCardEvents(card) {
     }
   });
 
-  // Evento para mudança de prioridade
-  card.querySelector("select").addEventListener("change", (event) => {
-    const selectedValue = event.target.value;
-    const colors = {
-      low: "#92a5fb",
-      medium: "#fea065",
-      high: "#d573b6",
+  // Evento para mudança de prioridade com botão
+  const priorityButton = card.querySelector(".priority");
+  priorityButton.addEventListener("click", (event) => {
+    const currentPriority = event.target.dataset.priority;
+
+    // Mapeia as prioridades e suas respectivas cores de fundo
+    const priorities = {
+      low: { text: "Média prioridade", color: "#fea065", next: "medium" },
+      medium: { text: "Alta prioridade", color: "#d573b6", next: "high" },
+      high: { text: "Baixa prioridade", color: "#92a5fb", next: "low" },
     };
-    card.style.backgroundColor = colors[selectedValue];
+
+    const newPriority = priorities[currentPriority];
+    priorityButton.textContent = newPriority.text; // Atualiza o texto do botão
+    priorityButton.dataset.priority = newPriority.next; // Atualiza a prioridade no dataset
+    card.style.backgroundColor = newPriority.color; // Altera a cor de fundo do cartão
   });
 }
 
@@ -112,11 +118,10 @@ document.querySelectorAll(".add-card").forEach((button) => {
     newCard.classList.add("kanban-card");
     newCard.draggable = true;
     newCard.innerHTML = `
-      <select>
-        <option value="low">Baixa prioridade</option>
-        <option value="medium">Média prioridade</option>
-        <option value="high">Alta prioridade</option>
-      </select>
+
+      <button class="priority" data-priority="low">
+      Baixa prioridade
+      </button>
       <input type="text" class="card-title" maxlength="30" placeholder="Digite o título" />
       <div class="comments"></div>
       <div class="card-infos">
